@@ -70,7 +70,6 @@ def main(args):
     logger.info('Issues: logiing...')
     sleep(0.01)
     print_results(ISSUES, 'ISSUES')
-    sleep(0.01)
     export_results_to_csv(ISSUES, 'issues.csv')
 
 
