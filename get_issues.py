@@ -26,7 +26,7 @@ def read_xml_test_data(file, path):
     for test in test_case:
         name = test.find('name').text
         test_state = test.attrib['status']
-        execution_time = str((int(test.attrib['stop']) - int(test.attrib['start'])) / 1000.0)
+        execution_time = str((int(test.attrib['stop']) - int(test.attrib['start'])) / 1000.0).replace('.', ',')
         try:
             desc = test.find('description').text
         except AttributeError:
@@ -43,7 +43,7 @@ def read_xml_test_data(file, path):
                 test_data['name'] = name
                 test_data['description'] = desc
                 test_data['test status'] = test_state
-                test_data['time'] = execution_time + 's'
+                test_data['time'] = execution_time
                 test_data['error'] = error
                 ISSUES.append(test_data)
 
